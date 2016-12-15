@@ -66,19 +66,24 @@ public class Inquire extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 
 				// TODO Auto-generated method stub
+				String sql;
+				
 				String classno;
 				String classname;
 				String dept;
 
 				GetSQL.ConnectSQL();
-				String sql = "select classno,classname,sdept from class where classno=(select classno from student where sno='"
-						+ no + "')";
+				if(no.length()>9){
+					sql="select classno,classname,sdept from class where classno=(select classno from student where sno='"+no+"')";
+				}else{
+					sql="select tno,tname,tdept from teacher where tno='"+no+"'";
+				}
+				
 				System.out.println("sql=" + sql);
 				GetSQL gs = new GetSQL();
 				ResultSet rs = gs.query(sql);
 				try {
 					if (rs.next()) {
-
 						classno = rs.getString(1);
 						classname = rs.getString(2);
 						dept = rs.getString(3);
@@ -101,43 +106,55 @@ public class Inquire extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				String sql;
 				String cno1, cno2, cno3;
 				String cname1, cname2, cname3;
 				String degree1, degree2, degree3;
 
 				GetSQL.ConnectSQL();
-				String sql1 = "select sc.cno,cname,degree from course,sc where course.cno=sc.cno and sno='" + no + "'";
-				System.out.println("sql=" + sql1);
+				
+				if(no.length()>9){
+					sql="select sc.cno,cname,degree from course,sc where course.cno=sc.cno and sno='" + no + "'";
+				}else{
+					sql="SELECT a.cno,b.cname,b.cterm FROM course b,teaching a where a.cno=b.cno and tno='"+no+"'";
+				}
+				
+				System.out.println("sql=" + sql);
 				GetSQL gs = new GetSQL();
-				ResultSet rs = gs.query(sql1);
+				ResultSet rs = gs.query(sql);
 				try {
 					if (rs.next()) {
-						// 将教师的用户名和密码取出
 						cno1 = rs.getString(1);
 						cname1 = rs.getString(2);
 						degree1 = rs.getString(3);
+						
+						if(no.length()>9){
+						
+							cno2 = rs.getString(1);
+							cname2 = rs.getString(2);
+							degree2 = rs.getString(3);
 
-						rs.next();
-						cno2 = rs.getString(1);
-						cname2 = rs.getString(2);
-						degree2 = rs.getString(3);
+							rs.next();
+							cno3 = rs.getString(1);
+							cname3 = rs.getString(2);
+							degree3 = rs.getString(3);
+							
+							table2.setValueAt(cno2, 1, 0);
+							table2.setValueAt(cname2, 1, 1);
+							table2.setValueAt(degree2, 1, 2);
 
-						rs.next();
-						cno3 = rs.getString(1);
-						cname3 = rs.getString(2);
-						degree3 = rs.getString(3);
+							table2.setValueAt(cno3, 2, 0);
+							table2.setValueAt(cname3, 2, 1);
+							table2.setValueAt(degree3, 2, 2);
+						}
+					
+						
 
 						table2.setValueAt(cno1, 0, 0);
 						table2.setValueAt(cname1, 0, 1);
 						table2.setValueAt(degree1, 0, 2);
 
-						table2.setValueAt(cno2, 1, 0);
-						table2.setValueAt(cname2, 1, 1);
-						table2.setValueAt(degree2, 1, 2);
-
-						table2.setValueAt(cno3, 2, 0);
-						table2.setValueAt(cname3, 2, 1);
-						table2.setValueAt(degree3, 2, 2);
+						
 					} else {
 						JOptionPane.showMessageDialog(null, "Havenot This Student!", "Message", JOptionPane.WARNING_MESSAGE);
 					}
