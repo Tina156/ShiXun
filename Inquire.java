@@ -67,18 +67,19 @@ public class Inquire extends JFrame implements ActionListener {
 
 				// TODO Auto-generated method stub
 				String sql;
-				
+
 				String classno;
 				String classname;
 				String dept;
 
 				GetSQL.ConnectSQL();
-				if(no.length()>9){
-					sql="select classno,classname,sdept from class where classno=(select classno from student where sno='"+no+"')";
-				}else{
-					sql="select tno,tname,tdept from teacher where tno='"+no+"'";
+				if (no.length() > 9) {
+					sql = "select classno,classname,sdept from class where classno=(select classno from student where sno='"
+							+ no + "')";
+				} else {
+					sql = "select tno,tname,tdept from teacher where tno='" + no + "'";
 				}
-				
+
 				System.out.println("sql=" + sql);
 				GetSQL gs = new GetSQL();
 				ResultSet rs = gs.query(sql);
@@ -112,13 +113,14 @@ public class Inquire extends JFrame implements ActionListener {
 				String degree1, degree2, degree3;
 
 				GetSQL.ConnectSQL();
-				
-				if(no.length()>9){
-					sql="select sc.cno,cname,degree from course,sc where course.cno=sc.cno and sno='" + no + "'";
-				}else{
-					sql="SELECT a.cno,b.cname,b.cterm FROM course b,teaching a where a.cno=b.cno and tno='"+no+"'";
+
+				if (no.length() > 9) {
+					sql = "select sc.cno,cname,degree from course,sc where course.cno=sc.cno and sno='" + no + "'";
+				} else {
+					sql = "SELECT a.cno,b.cname,b.cterm FROM course b,teaching a where a.cno=b.cno and tno='" + no
+							+ "'";
 				}
-				
+
 				System.out.println("sql=" + sql);
 				GetSQL gs = new GetSQL();
 				ResultSet rs = gs.query(sql);
@@ -127,9 +129,9 @@ public class Inquire extends JFrame implements ActionListener {
 						cno1 = rs.getString(1);
 						cname1 = rs.getString(2);
 						degree1 = rs.getString(3);
-						
-						if(no.length()>9){
-						
+
+						if (no.length() > 9) {
+
 							cno2 = rs.getString(1);
 							cname2 = rs.getString(2);
 							degree2 = rs.getString(3);
@@ -138,7 +140,7 @@ public class Inquire extends JFrame implements ActionListener {
 							cno3 = rs.getString(1);
 							cname3 = rs.getString(2);
 							degree3 = rs.getString(3);
-							
+
 							table2.setValueAt(cno2, 1, 0);
 							table2.setValueAt(cname2, 1, 1);
 							table2.setValueAt(degree2, 1, 2);
@@ -147,16 +149,14 @@ public class Inquire extends JFrame implements ActionListener {
 							table2.setValueAt(cname3, 2, 1);
 							table2.setValueAt(degree3, 2, 2);
 						}
-					
-						
 
 						table2.setValueAt(cno1, 0, 0);
 						table2.setValueAt(cname1, 0, 1);
 						table2.setValueAt(degree1, 0, 2);
 
-						
 					} else {
-						JOptionPane.showMessageDialog(null, "Havenot This Student!", "Message", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Havenot This Student!", "Message",
+								JOptionPane.WARNING_MESSAGE);
 					}
 				} catch (HeadlessException | SQLException e1) {
 					// TODO Auto-generated catch block
@@ -164,12 +164,12 @@ public class Inquire extends JFrame implements ActionListener {
 				}
 			}
 		});
-		//set table A
+		// set table A
 		String[] colnames = { "classno", "classname", "dept" };
 		model = new DefaultTableModel(colnames, 3);
 		table = new JTable(model);
 		jsp = new JScrollPane(table);
-		//set table B
+		// set table B
 		String[] col = { "cno", "cname", "degree" };
 		model2 = new DefaultTableModel(col, 3);
 		table2 = new JTable(model2);

@@ -15,13 +15,12 @@ public class tea_UI extends JFrame implements ActionListener {
 	JLabel jl1 = null;
 	JButton jb1, jb2, jb3, jb4 = null;
 	JTextField jtf = null;
-
+	String non;
 	public tea_UI(String name) {
 		// TODO Auto-generated constructor stub
 		jp1 = new JPanel();
 		jp2 = new JPanel();
 		jp3 = new JPanel();
-		jp4 = new JPanel();
 		jl1 = new JLabel("Hello!" + name);
 		jb1 = new JButton("Modify Password");
 		jb2 = new JButton("Search");
@@ -42,6 +41,7 @@ public class tea_UI extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String no = jtf.getText();
+				non=no;
 
 				if (no.length() > 9) {
 					String sql = "select * from student where sno='" + no + "'";
@@ -84,7 +84,15 @@ public class tea_UI extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-
+			if(jtf.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null, "Please Enter Data!", "Message",
+						JOptionPane.WARNING_MESSAGE);
+			}else if(jtf.getText().length()>9){
+					degree dg=new degree(jtf.getText());
+				}else{
+					JOptionPane.showMessageDialog(null, "Please Enter Student Number!", "Message",
+							JOptionPane.WARNING_MESSAGE);
+				}
 			}
 		});
 
@@ -95,12 +103,11 @@ public class tea_UI extends JFrame implements ActionListener {
 		jp3.add(jtf);
 		jp3.add(jb2);
 
-		jp4.add(jb3);
+		jp3.add(jb3);
 
 		this.add(jp1);
 		this.add(jp2);
 		this.add(jp3);
-		this.add(jp4);
 
 		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
