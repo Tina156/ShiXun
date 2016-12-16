@@ -131,7 +131,7 @@ public class Inquire extends JFrame implements ActionListener {
 						degree1 = rs.getString(3);
 
 						if (no.length() > 9) {
-
+							rs.next();
 							cno2 = rs.getString(1);
 							cname2 = rs.getString(2);
 							degree2 = rs.getString(3);

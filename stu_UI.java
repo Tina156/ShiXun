@@ -79,7 +79,6 @@ public class stu_UI extends JFrame implements ActionListener {
 		this.add(jp2);
 		this.add(jp3);
 
-
 		this.setLayout(new GridLayout(3, 1));
 		this.setTitle("Student Information Management System");
 		this.setSize(400, 300);

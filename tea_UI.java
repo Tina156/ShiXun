@@ -16,6 +16,7 @@ public class tea_UI extends JFrame implements ActionListener {
 	JButton jb1, jb2, jb3, jb4 = null;
 	JTextField jtf = null;
 	String non;
+
 	public tea_UI(String name) {
 		// TODO Auto-generated constructor stub
 		jp1 = new JPanel();
@@ -41,7 +42,7 @@ public class tea_UI extends JFrame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String no = jtf.getText();
-				non=no;
+				non = no;
 
 				if (no.length() > 9) {
 					String sql = "select * from student where sno='" + no + "'";
@@ -84,12 +85,16 @@ public class tea_UI extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-			if(jtf.getText().isEmpty()){
-				JOptionPane.showMessageDialog(null, "Please Enter Data!", "Message",
-						JOptionPane.WARNING_MESSAGE);
-			}else if(jtf.getText().length()>9){
-					degree dg=new degree(jtf.getText());
-				}else{
+				if (jtf.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Please Enter Data!", "Message", JOptionPane.WARNING_MESSAGE);
+				} else if (jtf.getText().length() > 9) {
+					try {
+						degree dg = new degree(jtf.getText());
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else {
 					JOptionPane.showMessageDialog(null, "Please Enter Student Number!", "Message",
 							JOptionPane.WARNING_MESSAGE);
 				}
