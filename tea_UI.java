@@ -22,7 +22,7 @@ public class tea_UI extends JFrame implements ActionListener {
 		jp1 = new JPanel();
 		jp2 = new JPanel();
 		jp3 = new JPanel();
-		jl1 = new JLabel("Hello!" + name);
+		jl1 = new JLabel("Hello!	Teacher" + name);
 		jb1 = new JButton("Modify Password");
 		jb2 = new JButton("Search");
 		jb3 = new JButton("Degree Search");

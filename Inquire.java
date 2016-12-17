@@ -1,4 +1,4 @@
-//实现用户的利用学号或者职工号查询信息并在表中显示。
+//为学生，老师，管理员提供实现用户的利用学号或者职工号查询信息并在表中显示。
 
 package GitHub;
 
@@ -38,28 +38,31 @@ public class Inquire extends JFrame implements ActionListener {
 
 		String sql;
 		String namex;
-		if (no.length() > 9) {
-			sql = "select sname from student where sno='" + no + "'";
-			namex = "sname";
+		if (no.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Please Enter number", "Message", JOptionPane.WARNING_MESSAGE);
 		} else {
-			sql = "select tname from teacher where tno='" + no + "'";
-			namex = "tname";
+			if (no.length() > 9) {
+				sql = "select sname from student where sno='" + no + "'";
+				namex = "sname";
+			} else {
+				sql = "select tname from teacher where tno='" + no + "'";
+				namex = "tname";
+			}
+
+			System.out.println("sql=" + sql);
+			ResultSet rs = db.query(sql);
+			if (rs.next()) {
+				String name = rs.getString(namex);
+				System.out.println(name);
+				jl = new JLabel("Hello!" + "   " + name);
+			}
+
+			jl3 = new JLabel("Class Table:");
+			jl4 = new JLabel("Course Table:");
+
+			jb = new JButton("Inquire Class");
+			jb2 = new JButton("Inquire Course");
 		}
-
-		System.out.println("sql=" + sql);
-		ResultSet rs = db.query(sql);
-		if (rs.next()) {
-			String name = rs.getString(namex);
-			System.out.println(name);
-			jl = new JLabel("Hello!" + "   " + name);
-		}
-
-		jl3 = new JLabel("Class Table:");
-		jl4 = new JLabel("Course Table:");
-
-		jb = new JButton("Inquire Class");
-		jb2 = new JButton("Inquire Course");
-
 		jb.addActionListener(new ActionListener() {
 
 			@Override
@@ -164,6 +167,7 @@ public class Inquire extends JFrame implements ActionListener {
 				}
 			}
 		});
+
 		// set table A
 		String[] colnames = { "classno", "classname", "dept" };
 		model = new DefaultTableModel(colnames, 3);
@@ -206,7 +210,7 @@ public class Inquire extends JFrame implements ActionListener {
 		this.add(jp6);
 		this.add(jp4);
 
-		this.setLayout(new GridLayout(6, 0));
+		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
 		this.setSize(500, 600);
 		this.setLocation(150, 150);

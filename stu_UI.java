@@ -64,7 +64,7 @@ public class stu_UI extends JFrame implements ActionListener {
 		jp2 = new JPanel();
 		jp3 = new JPanel();
 
-		jlb1 = new JLabel("Hello!" + "   " + name);
+		jlb1 = new JLabel("Hello!	Students"+name);
 		jlb2 = new JLabel("School Number:");
 
 		jp1.add(jlb1);

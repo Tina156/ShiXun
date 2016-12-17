@@ -15,7 +15,6 @@ public class Modify extends JFrame implements ActionListener {
 	JLabel jl = null;
 	JButton jb = null;
 	JTextField jtf = null;
-
 	public Modify(String name) {
 		// TODO Auto-generated constructor stub
 		jb = new JButton("OK");
@@ -41,7 +40,7 @@ public class Modify extends JFrame implements ActionListener {
 				}
 				dispose();
 			}
-
+			
 		});
 		jtf = new JTextField(10);
 		jl = new JLabel("New Password:");
