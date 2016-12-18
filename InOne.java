@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class InOne extends JFrame implements ActionListener{
 	
 	JLabel  jl3 = null;
-	JButton jb,jb3,jb4 = null;
+	JButton jb,jb4 = null;
 	JPanel jp1, jp2, jp3, jp4, jp5, jp6 = null;
 
 	DefaultTableModel model = null;
@@ -33,7 +33,6 @@ public class InOne extends JFrame implements ActionListener{
 		jl3 = new JLabel("Student Table:");
 
 		jb = new JButton("Display");
-		jb3=new JButton("modify");
 		jb4 = new JButton("Delete");
 
 		jb.addActionListener(new ActionListener() {
@@ -81,15 +80,6 @@ public class InOne extends JFrame implements ActionListener{
 			}
 		});
 		
-		jb3.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				add ad=new add(no);
-			}
-		});
-		
 		jb4.addActionListener(new ActionListener() {
 
 			@Override
@@ -104,11 +94,12 @@ public class InOne extends JFrame implements ActionListener{
 					JOptionPane.showMessageDialog(null, "Please Enter New password", "Message",
 							JOptionPane.WARNING_MESSAGE);
 				} else {
-					String sql = "delete from student where sno='" + no + "'";
+					String sql = "delete from student where sno='"+no+"'";
 					db.insert(sql);
 					JOptionPane.showMessageDialog(null, "Modified successfully", "Message",
 							JOptionPane.WARNING_MESSAGE);
 				}
+				dispose();
 			}
 		});
 		// set table A
@@ -148,8 +139,8 @@ public class InOne extends JFrame implements ActionListener{
 
 		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(500, 600);
-		this.setLocation(150, 150);
+		this.setSize(470, 450);
+		this.setLocation(700, 150);
 		this.setVisible(true);
 		this.setResizable(false);
 	}

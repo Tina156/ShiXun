@@ -165,8 +165,8 @@ public class user extends JFrame implements ActionListener {
 
 		this.setLayout(new GridLayout(2, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(500, 500);
-		this.setLocation(150, 150);
+		this.setSize(470, 500);
+		this.setLocation(700, 150);
 		this.setVisible(true);
 		this.setResizable(false);
 	}

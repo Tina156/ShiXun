@@ -1,3 +1,4 @@
+//实现管理员进行对学生或课程信息的修改及添加
 package GitHub;
 
 
@@ -108,8 +109,8 @@ public class add extends JFrame implements ActionListener{
 		
 		this.setLayout(new GridLayout(5, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(400, 300);
-		this.setLocation(200, 200);
+		this.setSize(470, 450);
+		this.setLocation(700, 200);
 		this.setVisible(true);
 	}
 

@@ -78,10 +78,10 @@ public class table extends JFrame implements ActionListener{
 		this.add(jp1);
 		this.add(jp1);
 
-		this.setLayout(new GridLayout(2, 1));
+		this.setLayout(new GridLayout(1, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(500, 500);
-		this.setLocation(150, 150);
+		this.setSize(470, 250);
+		this.setLocation(700, 150);
 		this.setVisible(true);
 		this.setResizable(false);
 	}

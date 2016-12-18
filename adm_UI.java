@@ -15,7 +15,7 @@ public class adm_UI extends JFrame implements ActionListener {
 	JLabel jlb1,jlb2,jlb3,jlb4,jlb5,jlb6=null;
 	JPanel jp1,jp2,jp3,jp4,jp5,jp6=null;
 	JButton jb1,jb2,jb3,jb4,jb41,jb5,jb51=null;
-	JTextField jtf,jtf2=null;
+	JTextField jtf,jtf1,jtf2=null;
 	
 	public adm_UI(String name) {
 		// TODO Auto-generated constructor stub
@@ -42,6 +42,7 @@ public class adm_UI extends JFrame implements ActionListener {
 		jb51=new JButton("Add");
 		
 		jtf=new JTextField(10);
+		jtf1=new JTextField(10);
 		jtf2=new JTextField(10);
 		
 		jp1.add(jlb1);
@@ -57,7 +58,7 @@ public class adm_UI extends JFrame implements ActionListener {
 		jp4.add(jb3);
 		
 		jp5.add(jlb5);
-		jp5.add(jtf);
+		jp5.add(jtf1);
 		jp5.add(jb4);
 		jp5.add(jb41);
 		
@@ -123,7 +124,7 @@ public class adm_UI extends JFrame implements ActionListener {
 				// TODO Auto-generated method stub
 				
 					try {
-						String non=jtf2.getText();
+						String non=jtf1.getText();
 						InOne io=new InOne(non);
 					} catch (ClassNotFoundException | SQLException e1) {
 						// TODO Auto-generated catch block
@@ -136,7 +137,7 @@ public class adm_UI extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String no=jtf.getText();
+				String no=jtf1.getText();
 				add ad=new add(no);
 			}
 		});
@@ -167,7 +168,7 @@ public class adm_UI extends JFrame implements ActionListener {
 		});
 		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(500, 400);
+		this.setSize(470, 450);
 		this.setLocation(200, 200);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

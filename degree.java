@@ -1,4 +1,4 @@
-//实现对成绩的修改
+//老师界面-实现对成绩的修改
 package GitHub;
 
 import java.awt.*;
@@ -105,7 +105,7 @@ public class degree extends JFrame implements ActionListener {
 		
 		this.setTitle("Student Information Management System");
 		this.setSize(400, 300);
-		this.setLocation(200, 200);
+		this.setLocation(700, 100);
 		this.setVisible(true);
 	}
 

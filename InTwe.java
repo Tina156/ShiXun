@@ -1,4 +1,4 @@
-//实现为管理员提供的学生管理的功能
+//实现为管理员提供的课程管理的功能
 package GitHub;
 
 import java.awt.BorderLayout;
@@ -103,7 +103,7 @@ public class InTwe extends JFrame implements ActionListener{
 					JOptionPane.showMessageDialog(null, "Modified successfully", "Message",
 							JOptionPane.WARNING_MESSAGE);
 				}
-				
+				dispose();
 			}
 		});
 		// set table A
@@ -144,8 +144,8 @@ public class InTwe extends JFrame implements ActionListener{
 
 		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(500, 600);
-		this.setLocation(150, 150);
+		this.setSize(470, 450);
+		this.setLocation(700, 150);
 		this.setVisible(true);
 		this.setResizable(false);
 	}

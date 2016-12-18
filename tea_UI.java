@@ -102,6 +102,7 @@ public class tea_UI extends JFrame implements ActionListener {
 		});
 
 		jp1.add(jl1);
+		
 
 		jp2.add(jb1);
 
@@ -116,7 +117,7 @@ public class tea_UI extends JFrame implements ActionListener {
 
 		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(400, 300);
+		this.setSize(470, 450);
 		this.setLocation(200, 200);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

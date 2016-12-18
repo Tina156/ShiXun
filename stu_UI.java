@@ -68,6 +68,7 @@ public class stu_UI extends JFrame implements ActionListener {
 		jlb2 = new JLabel("School Number:");
 
 		jp1.add(jlb1);
+		
 
 		jp2.add(jb1);
 
@@ -79,10 +80,10 @@ public class stu_UI extends JFrame implements ActionListener {
 		this.add(jp2);
 		this.add(jp3);
 
-		this.setLayout(new GridLayout(3, 1));
+		this.setLayout(new GridLayout(6, 1));
 		this.setTitle("Student Information Management System");
-		this.setSize(400, 300);
-		this.setLocation(200, 200);
+		this.setSize(470, 450);
+		this.setLocation(200, 120);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}

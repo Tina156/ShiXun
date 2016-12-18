@@ -57,7 +57,7 @@ public class Modify extends JFrame implements ActionListener {
 
 		this.setTitle("Student Information Management System");
 		this.setSize(200, 300);
-		this.setLocation(200, 200);
+		this.setLocation(700, 150);
 		this.setVisible(true);
 	}
 
